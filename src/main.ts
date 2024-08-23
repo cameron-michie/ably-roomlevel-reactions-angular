@@ -37,7 +37,7 @@ export class App {
     const msgDisplay: HTMLElement | null = document.getElementById('messages');
     if (msgDisplay) {
       const { unsubscribe } = room.reactions.subscribe((reaction: Reaction) => {
-        const msgData: string = JSON.stringify(reaction, null, 2);
+        const msgData: string = JSON.stringify(reaction.clientId+' sends '+reaction.type, null, 2);
         msgDisplay.textContent += `${msgData}\n`;
       });
 
